@@ -17,7 +17,7 @@ export default [
         file: packageJson.main,
         format: 'cjs',
         sourcemap: false,
-        name: '@skuad/ui',
+        name: 'ui-lib',
       },
       {
         file: packageJson.module,
@@ -42,7 +42,7 @@ export default [
         file: 'core/index.js',
         format: 'cjs',
         sourcemap: false,
-        name: '@skuad/ui/core',
+        name: 'ui-lib/core',
       },
       {
         file: 'dist/esm/core/index.js',
