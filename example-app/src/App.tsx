@@ -17,14 +17,14 @@ const StyledButton = styled(Button)(({ theme }) => {
 /*
 * WORKING -
   - Importing the components from `@mui/material` and themeProvider from `./theme/skuadDefaultTheme`
-  - Importing everything only from `ui-lib/core` (but in line no. 13, still no extra colors are being consoled, which were added in DefaultTheme)
+  - Importing everything only from `ui-lib` (but while trying to console theme values when using `DefaultTheme`,no extra colors are being consoled, which were added in `DefaultTheme` under library)
 */
 
 /*
 ! NOT-WORKING -
+  - Importing the components from `ui-lib/core` and themeProvider from `ui-lib`
   - Importing the components from `ui-lib/core` and themeProvider from `./theme/skuadDefaultTheme`
   - Importing the components from `@mui/material` and themeProvider from `ui-lib`
-  - Importing the components from `ui-lib` and themeProvider from `./theme/skuadDefaultTheme`
 */
 
 function App() {
