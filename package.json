@@ -16,7 +16,8 @@
     "*.d.ts"
   ],
   "scripts": {
-    "start": "react-scripts start",
+    "link-lib": "yarn unlink; yarn link && cd example-app && yarn link 'ui-lib'",
+    "start": "yarn link-lib && cd example-app && yarn start",
     "prebuild": "rm -rf core dist types index.js index.d.ts",
     "build": "yarn prebuild && rollup -c",
     "storybook": "start-storybook -p 6006",

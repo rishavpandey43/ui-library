@@ -11,7 +11,7 @@ const packageJson = require('./package.json');
 
 export default [
   {
-    input: 'src/lib.ts',
+    input: 'src/index.ts',
     output: [
       {
         file: packageJson.main,
@@ -61,7 +61,7 @@ export default [
     ],
   },
   {
-    input: 'dist/esm/types/lib.d.ts',
+    input: 'dist/esm/types/index.d.ts',
     output: [{ file: 'index.d.ts', format: 'esm' }],
     external: [/\.css$/],
     plugins: [dts()],
