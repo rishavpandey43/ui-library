@@ -1,7 +1,7 @@
 ## Installation
 
-```bash
-yarn add git+https://github.com/rishavpandey43/ui-library.git
+```sh
+    yarn add git+https://github.com/rishavpandey43/ui-library.git @emotion/react @emotion/styled @mui/icons @mui/lab @mui/material
 ```
 
 ## Documentation
@@ -13,11 +13,11 @@ It is divided in two main categories:
 
 ### Core Components
 
-```javascript
-import { Button, Alert, Select } from 'ui-lib';
-// or
-import { Button, Alert, Select } from 'ui-lib/core';
-```
+    ```javascript
+    import { Button, Alert, Select } from 'ui-lib';
+    // or
+    import { Button, Alert, Select } from 'ui-lib/core';
+    ```
 
 ### Themes
 
