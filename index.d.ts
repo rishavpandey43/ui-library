@@ -56,7 +56,6 @@ export { default as CardMedia } from '@mui/material/CardMedia';
 export * from '@mui/material/Checkbox';
 export { default as Checkbox } from '@mui/material/Checkbox';
 export * from '@mui/material/Chip';
-export { default as Chip } from '@mui/material/Chip';
 export * from '@mui/material/CircularProgress';
 export { default as CircularProgress } from '@mui/material/CircularProgress';
 export * from '@mui/material/ClickAwayListener';
@@ -108,7 +107,6 @@ export { default as Hidden } from '@mui/material/Hidden';
 export * from '@mui/material/Icon';
 export { default as Icon } from '@mui/material/Icon';
 export * from '@mui/material/IconButton';
-export { default as IconButton } from '@mui/material/IconButton';
 export * from '@mui/material/ImageList';
 export { default as ImageList } from '@mui/material/ImageList';
 export * from '@mui/material/ImageListItem';
@@ -256,7 +254,6 @@ export { default as Toolbar } from '@mui/material/Toolbar';
 export * from '@mui/material/Tooltip';
 export { default as Tooltip } from '@mui/material/Tooltip';
 export * from '@mui/material/Typography';
-export { default as Typography } from '@mui/material/Typography';
 export * from '@mui/material/useMediaQuery';
 export { default as useMediaQuery } from '@mui/material/useMediaQuery';
 export * from '@mui/material/usePagination';
@@ -272,7 +269,7 @@ export { default as unstable_composeClasses } from '@mui/base/composeClasses';
 export * from '@mui/base/generateUtilityClass';
 export { default as generateUtilityClass } from '@mui/base/generateUtilityClass';
 export { default as generateUtilityClasses } from '@mui/base/generateUtilityClasses';
-import { AvatarProps, ButtonProps } from '@mui/material';
+import { AvatarProps, ButtonProps, ChipProps, IconButtonProps, TypographyProps } from '@mui/material';
 
 interface DefaultThemeType {
     children: React$1.ReactNode;
@@ -301,4 +298,157 @@ interface CustomButtonProps extends ButtonProps {
 }
 declare const Button: React.FC<CustomButtonProps>;
 
-export { Avatar, Button, CustomAvatarProps, CustomButtonProps, DefaultTheme };
+interface CustomChipProps extends ChipProps {
+    /**
+     * If `true`, chip shape is square with curved border.
+     * @default 'false'
+     */
+    square?: boolean;
+    /**
+     * The type of the component.
+     */
+    type?: 'draft' | 'processing' | 'successful' | 'cancelled' | 'selected' | 'deSelected';
+}
+declare const Chip: React.FC<CustomChipProps>;
+
+interface CustomIconButtonProps extends IconButtonProps {
+    /**
+     * Tooltip message, if any.
+     */
+    tooltipTitle?: string;
+    /**
+     * Tooltip Props to override, if required.
+     */
+    TooltipProps?: object;
+    /**
+     * if `true`, displays loading state.
+     * @default 'false'
+     */
+    loading?: boolean;
+}
+declare const IconButton: React.FC<CustomIconButtonProps>;
+
+interface CustomTypographyProps extends TypographyProps {
+    /**
+     * Font weight of the text.
+     */
+    weight?: number;
+    /**
+     * If `true`, the text will have a top margin.
+     * @default false
+     */
+    gutterTop?: boolean;
+    /**
+     * If `true`, the text will have a left margin.
+     * @default false
+     */
+    gutterLeft?: boolean;
+    /**
+     * If `true`, the text will have a right margin.
+     * @default false
+     */
+    gutterRight?: boolean;
+    /**
+     * The content of the component.
+     */
+    component?: React.ReactNode;
+}
+declare const Typography: React.FC<CustomTypographyProps>;
+
+interface DetailWithAvatarProps {
+    /**
+     * Heading of the detail.
+     */
+    heading: string;
+    /**
+     * Sub Heading of the detail.
+     */
+    subHeading?: string;
+    /**
+     * Details to be displayed inside chip.
+     */
+    chip?: {
+        label: string;
+        type: 'draft' | 'processing' | 'successful' | 'cancelled' | 'selected' | 'deSelected';
+    };
+    /**
+     * Props applied to the Avatar component.
+     */
+    AvatarProps?: CustomAvatarProps;
+    /**
+     * Props applied to the Chip component.
+     */
+    ChipProps?: CustomChipProps;
+}
+declare const DetailWithAvatar: ({ heading, subHeading, chip, ChipProps, AvatarProps, }: DetailWithAvatarProps) => JSX.Element;
+
+interface SubmitButtonGroupProps {
+    /**
+     * If `true`, displays the discard/submit buttons.
+     * @default 'false'
+     */
+    formEditable: boolean;
+    /**
+     * Function to trigger when the edit button is clicked.
+     * @default 'false'
+     */
+    setFormEditable: (editable: boolean) => void;
+    /**
+     * Function to trigger when the discard button is clicked.
+     * @default 'false'
+     */
+    discardChanges: () => void;
+    /**
+     * If `true`, enables the submit button.
+     * @default 'false'
+     */
+    localFormStateUpdated?: boolean;
+    /**
+     * if `true`, displays loading state.
+     * @default 'false'
+     */
+    loading?: boolean;
+    /**
+     * if `true`, renders IconButton instead of default Button.
+     * @default 'true'
+     */
+    iconButton?: boolean;
+}
+declare const SubmitButtonGroup: React.FC<SubmitButtonGroupProps>;
+
+interface CalloutDataProps {
+    /**
+     *  The heading of the callout data.
+     */
+    heading: string;
+    /**
+     * The sub-title of the callout data.
+     */
+    subTitle: string;
+    /**
+     * If `true`, highlight the data by increasing the font-size.
+     * @default 'false'
+     */
+    highlight?: boolean;
+}
+declare const CalloutData: React$1.FC<CalloutDataProps>;
+
+interface CalloutDataSetProps {
+    /**
+     *  Array consisting of callout data objects.
+     */
+    gridData: CalloutDataProps[];
+    /**
+     * If `true`, adds divider between callout data.
+     * @default 'false'
+     */
+    divider: boolean;
+    /**
+     * If `true`, highlight the data by increasing the font-size.
+     * @default 'false'
+     */
+    highlight?: boolean;
+}
+declare const CalloutDataSet: React.FC<CalloutDataSetProps>;
+
+export { Avatar, Button, CalloutData, CalloutDataProps, CalloutDataSet, CalloutDataSetProps, Chip, CustomAvatarProps, CustomButtonProps, CustomChipProps, CustomIconButtonProps, CustomTypographyProps, DefaultTheme, DetailWithAvatar, DetailWithAvatarProps, IconButton, SubmitButtonGroup, SubmitButtonGroupProps, Typography };

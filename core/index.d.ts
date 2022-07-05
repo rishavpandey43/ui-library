@@ -55,7 +55,6 @@ export { default as CardMedia } from '@mui/material/CardMedia';
 export * from '@mui/material/Checkbox';
 export { default as Checkbox } from '@mui/material/Checkbox';
 export * from '@mui/material/Chip';
-export { default as Chip } from '@mui/material/Chip';
 export * from '@mui/material/CircularProgress';
 export { default as CircularProgress } from '@mui/material/CircularProgress';
 export * from '@mui/material/ClickAwayListener';
@@ -107,7 +106,6 @@ export { default as Hidden } from '@mui/material/Hidden';
 export * from '@mui/material/Icon';
 export { default as Icon } from '@mui/material/Icon';
 export * from '@mui/material/IconButton';
-export { default as IconButton } from '@mui/material/IconButton';
 export * from '@mui/material/ImageList';
 export { default as ImageList } from '@mui/material/ImageList';
 export * from '@mui/material/ImageListItem';
@@ -255,7 +253,6 @@ export { default as Toolbar } from '@mui/material/Toolbar';
 export * from '@mui/material/Tooltip';
 export { default as Tooltip } from '@mui/material/Tooltip';
 export * from '@mui/material/Typography';
-export { default as Typography } from '@mui/material/Typography';
 export * from '@mui/material/useMediaQuery';
 export { default as useMediaQuery } from '@mui/material/useMediaQuery';
 export * from '@mui/material/usePagination';
@@ -271,7 +268,7 @@ export { default as unstable_composeClasses } from '@mui/base/composeClasses';
 export * from '@mui/base/generateUtilityClass';
 export { default as generateUtilityClass } from '@mui/base/generateUtilityClass';
 export { default as generateUtilityClasses } from '@mui/base/generateUtilityClasses';
-import { AvatarProps, ButtonProps } from '@mui/material';
+import { AvatarProps, ButtonProps, ChipProps, IconButtonProps, TypographyProps } from '@mui/material';
 
 interface CustomAvatarProps extends AvatarProps {
     /**
@@ -295,4 +292,61 @@ interface CustomButtonProps extends ButtonProps {
 }
 declare const Button: React.FC<CustomButtonProps>;
 
-export { Avatar, Button, CustomAvatarProps, CustomButtonProps };
+interface CustomChipProps extends ChipProps {
+    /**
+     * If `true`, chip shape is square with curved border.
+     * @default 'false'
+     */
+    square?: boolean;
+    /**
+     * The type of the component.
+     */
+    type?: 'draft' | 'processing' | 'successful' | 'cancelled' | 'selected' | 'deSelected';
+}
+declare const Chip: React.FC<CustomChipProps>;
+
+interface CustomIconButtonProps extends IconButtonProps {
+    /**
+     * Tooltip message, if any.
+     */
+    tooltipTitle?: string;
+    /**
+     * Tooltip Props to override, if required.
+     */
+    TooltipProps?: object;
+    /**
+     * if `true`, displays loading state.
+     * @default 'false'
+     */
+    loading?: boolean;
+}
+declare const IconButton: React.FC<CustomIconButtonProps>;
+
+interface CustomTypographyProps extends TypographyProps {
+    /**
+     * Font weight of the text.
+     */
+    weight?: number;
+    /**
+     * If `true`, the text will have a top margin.
+     * @default false
+     */
+    gutterTop?: boolean;
+    /**
+     * If `true`, the text will have a left margin.
+     * @default false
+     */
+    gutterLeft?: boolean;
+    /**
+     * If `true`, the text will have a right margin.
+     * @default false
+     */
+    gutterRight?: boolean;
+    /**
+     * The content of the component.
+     */
+    component?: React.ReactNode;
+}
+declare const Typography: React.FC<CustomTypographyProps>;
+
+export { Avatar, Button, Chip, CustomAvatarProps, CustomButtonProps, CustomChipProps, CustomIconButtonProps, CustomTypographyProps, IconButton, Typography };

@@ -1,8 +1,39 @@
 import React from 'react';
 // import {Button} from "@mui/material"
 import { styled } from '@mui/material/styles';
-import { Button, DefaultTheme } from 'ui-lib';
-// import { Button } from 'ui-lib/core';
+import AddIcon from '@mui/icons-material/Add';
+import {
+  Stack,
+  Box,
+  // Button,
+  DefaultTheme,
+} from 'ui-lib';
+import { Button, Chip, IconButton } from 'ui-lib/core';
+import { DetailWithAvatar, CalloutDataSet } from 'ui-lib/web';
+
+const gridData = [
+  {
+    heading: '2',
+    subTitle: 'Roles',
+  },
+  {
+    heading: '20',
+    subTitle: 'Open Positions',
+  },
+  {
+    heading: '10',
+    subTitle: 'Hired',
+  },
+
+  {
+    heading: '5',
+    subTitle: 'Offered',
+  },
+  {
+    heading: '25%',
+    subTitle: 'Decline Ratio',
+  },
+];
 
 // import DefaultTheme from "./theme/defaultTheme"
 
@@ -31,10 +62,47 @@ function App() {
   return (
     <div className="App">
       <DefaultTheme>
-        <StyledButton color="primary" variant="contained">
-          Styled Button
-        </StyledButton>
+        <Stack m={5} spacing={2} direction="row" alignItems="center">
+          <Button variant="contained">Hello</Button>
+          <StyledButton color="primary" variant="contained">
+            Styled Button
+          </StyledButton>
+          <Chip label="Square" square />
+          <Chip label="Draft" type="draft" />
+          <IconButton tooltipTitle="Hello, I'm tooltip">
+            <AddIcon />
+          </IconButton>
+          <DetailWithAvatar
+            heading="John Doe"
+            subHeading="Employee"
+            chip={{ label: 'Processing', type: 'processing' }}
+          />
+        </Stack>
+        <Stack>
+          <CalloutDataSet gridData={gridData} divider={true} />
+        </Stack>
       </DefaultTheme>
+      <Box mt={4}>
+        <Stack m={5} spacing={2} direction="row" alignItems="center">
+          <Button variant="contained">Hello</Button>
+          <StyledButton color="primary" variant="contained">
+            Styled Button
+          </StyledButton>
+          <Chip label="Square" square />
+          <Chip label="Draft" type="draft" />
+          <IconButton tooltipTitle="Hello, I'm tooltip">
+            <AddIcon />
+          </IconButton>
+          <DetailWithAvatar
+            heading="John Doe"
+            subHeading="Employee"
+            chip={{ label: 'Processing', type: 'processing' }}
+          />
+        </Stack>
+        <Stack>
+          <CalloutDataSet gridData={gridData} divider={true} />
+        </Stack>
+      </Box>
     </div>
   );
 }
